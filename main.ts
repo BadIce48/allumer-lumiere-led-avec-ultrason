@@ -5,9 +5,37 @@ basic.forever(function () {
     DigitalPin.P1,
     PingUnit.Centimeters
     )
-    if (distance < 10) {
-        basic.showIcon(IconNames.No)
+    if (distance < 3) {
+        basic.showLeds(`
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            # # # # #
+            `)
+    } else if (distance < 5) {
+        basic.showLeds(`
+            # # # # #
+            # # . # #
+            # . . . #
+            # # . # #
+            # # # # #
+            `)
+    } else if (distance < 7) {
+        basic.showLeds(`
+            # # . # #
+            # . . . #
+            . . . . .
+            # . . . #
+            # # . # #
+            `)
     } else {
-        basic.showIcon(IconNames.Yes)
+        basic.showLeds(`
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            . . . . .
+            `)
     }
 })
